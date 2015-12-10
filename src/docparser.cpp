@@ -3081,6 +3081,10 @@ int DocHRef::parse()
             {
               goto endhref;
             }
+            else if (tagId==HTML_IMG)
+            {
+              handleImg(this,m_children,g_token->attribs);
+            }
             else
             {
               warn_doc_error(g_fileName,doctokenizerYYlineno,"Unexpected html tag <%s%s> found within <a href=...> context",
